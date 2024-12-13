@@ -26,11 +26,11 @@ public class DiceService {
         for (int i = 0; i < diceCount; i++) {
             dice.roll();
             results[i] = dice.getValue();
-            log.setDiceCount(diceCount);
-            log.setResults(results);
-            log.setTimestamp(new Date());
-            diceRepository.save(log);
         }
+        log.setDiceCount(diceCount);
+        log.setResults(results);
+        log.setTimestamp(new Date());
+        diceRepository.save(log);
         return results;
     }
 
