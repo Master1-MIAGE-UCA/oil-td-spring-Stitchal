@@ -1,26 +1,22 @@
 package fr.unica.miage.rosset.dice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RollController {
+    @Autowired
+    DiceService diceService = new DiceService();
 
     @GetMapping("/rollDice")
-    public String rollDice() {
-        Dice dice = new Dice();
-        dice.roll();
-        return "The dice rolled a " + dice.getValue();
+    public int rollDice() {
+        return diceService.rollDice();
     }
 
-    @GetMapping("/rollDice/{X}")
-    public String rollDiceX(int X) {
-        Dice dice = new Dice();
-        int sum = 0;
-        for (int i = 0; i < X; i++) {
-            dice.roll();
-            sum += dice.getValue();
-        }
-        return "The dice rolled a sum of " + sum;
+    @GetMapping("/rollDice/{amount}")
+    public int[] rollDiceX(@PathVariable int amount) {
+        return diceService.rollDices(amount);
     }
 }
