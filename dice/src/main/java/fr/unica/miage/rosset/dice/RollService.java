@@ -3,6 +3,8 @@ package fr.unica.miage.rosset.dice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RollService {
     @Autowired
@@ -24,5 +26,9 @@ public class RollService {
         log.setResults(results);
         log.setTimestamp(new java.util.Date());
         repository.save(log);
+    }
+
+    public List<DiceRollLog> getAllDiceLogs() {
+        return repository.findAll();
     }
 }
