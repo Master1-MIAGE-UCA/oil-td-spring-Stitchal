@@ -26,4 +26,28 @@ public class DiceRollLog {
     public Long getId() {
         return id;
     }
+
+    public int getDiceCount() {
+        return diceCount;
+    }
+
+    public void setDiceCount(int diceCount) {
+        this.diceCount = diceCount;
+    }
+
+    public int[] getResults() {
+        return results;
+    }
+
+    public void setResults(int[] results) {
+        this.results = results;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 }
