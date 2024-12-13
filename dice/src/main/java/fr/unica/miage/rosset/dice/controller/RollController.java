@@ -1,5 +1,6 @@
-package fr.unica.miage.rosset.dice;
+package fr.unica.miage.rosset.dice.controller;
 
+import fr.unica.miage.rosset.dice.service.DiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

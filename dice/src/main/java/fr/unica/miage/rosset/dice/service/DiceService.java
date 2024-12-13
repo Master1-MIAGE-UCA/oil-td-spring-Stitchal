@@ -1,16 +1,18 @@
-package fr.unica.miage.rosset.dice;
+package fr.unica.miage.rosset.dice.service;
 
+import fr.unica.miage.rosset.dice.Dice;
+import fr.unica.miage.rosset.dice.DiceRollLog;
+import fr.unica.miage.rosset.dice.repository.DiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class DiceService {
     @Autowired
-    public Repository repository;
+    public DiceRepository diceRepository;
     @Autowired
     private Dice dice;
 
@@ -27,13 +29,13 @@ public class DiceService {
             log.setDiceCount(diceCount);
             log.setResults(results);
             log.setTimestamp(new Date());
-            repository.save(log);
+            diceRepository.save(log);
         }
         return results;
     }
 
 
     public List<DiceRollLog> getAllDiceLogs() {
-        return repository.findAll();
+        return diceRepository.findAll();
     }
 }
